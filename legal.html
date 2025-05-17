@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataHunt</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/jpeg" href="DataHunt.jpg">
+</head>
+<body>
+    <div class="sidebar">
+        <h1 class="logo">DataHunt</h1>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+            <li><a href="legal.html#laws"><i class="fas fa-book"></i> Законы</a></li>
+            <li><a href="legal.html#ethics"><i class="fas fa-handshake"></i> Этичное использование</a></li>
+            <li><a href="legal.html#disclaimer"><i class="fas fa-exclamation-triangle"></i> Дисклеймер</a></li>
+            <li><a href="legal.html#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <header>
+            <h1>DataHunt</h1>
+            <p>OSINT Intelligence Platform</p>
+        </header>
+        <main>
+            <section id="laws">
+                <div class="glass-card accordion-item">
+                    <button class="accordion-header">Закон "О персональных данных"<i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Использование OSINT-ботов регулируется Законом РК №94-V от 21.05.2013. Согласно статье 8:</p>
+                        <ul>
+                            <li>Сбор данных без согласия субъекта запрещён.</li>
+                            <li>Несанкционированный "пробив" может повлечь уголовную ответственность по ст. 147 УК РК.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="ethics">
+                <div class="glass-card accordion-item">
+                    <button class="accordion-header">Принципы "белого" OSINT<i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <ul>
+                            <li>Проверяйте только свои данные или с письменного согласия.</li>
+                            <li>Не передавайте информацию третьим лицам.</li>
+                            <li>Используйте только открытые источники.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="disclaimer">
+                <div class="glass-card accordion-item">
+                    <button class="accordion-header">Ответственность<i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Мы не несём ответственности за незаконное использование инструментов. Все данные — только для образовательных целей.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="faq">
+                <div class="glass-card accordion-item">
+                    <button class="accordion-header">Легален ли пробив?<i class="fas fa-chevron-down"></i></button>
+                    <div class="accordion-content">
+                        <p>Только для своих данных или с согласия владельца. В остальных случаях — нарушение закона.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>v2.4.1</p>
+            <p>© 2025 DataHunt</p>
+        </footer>
+    </div>
+</body>
+</html>
