@@ -1,36 +1,68 @@
+// Menu toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    if (menuToggle && sidebar) {
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            menuToggle.innerHTML = sidebar.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+    }
 
-    // Sidebar toggle for mobile
-    document.addEventListener('click', function(event) {
-        if (!sidebar.contains(event.target) && sidebar.classList.contains('active')) {
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
             sidebar.classList.remove('active');
+            if (menuToggle) {
+                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
         }
     });
 
-    // Set active link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
+    // Accordion functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            // Close all accordions first
+            accordionHeaders.forEach(h => {
+                h.classList.remove('active');
+                h.nextElementSibling.style.maxHeight = null;
+            });
+            
+            // Open clicked one if it wasn't active
+            if (!isActive) {
+                header.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
         });
     });
 
-    // Accordion functionality
-    accordionHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const item = this.parentElement;
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.accordion-item').forEach(i => {
-                i.classList.remove('active');
-                i.querySelector('.accordion-content').style.maxHeight = null;
-            });
-            if (!isActive) {
-                item.classList.add('active');
-                const content = item.querySelector('.accordion-content');
-                content.style.maxHeight = content.scrollHeight + 'px';
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Close sidebar on mobile after click
+                if (window.innerWidth <= 768 && sidebar) {
+                    sidebar.classList.remove('active');
+                    if (menuToggle) {
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
             }
         });
     });

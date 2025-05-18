@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости |Updates | DataHunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="alert.js" defer></script>
+    <link rel="icon" type="image/jpeg" href="DataHunt.jpg">
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo">DataHunt</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Главная</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="index.html#api-probivs">API пробива</a></li>
+            <li><a href="index.html#fio-probivs">Поиск по ФИО</a></li>
+            <li><a href="index.html#phone-probivs">Поиск по телефону</a></li>
+            <li><a href="index.html#tg-probivs">Telegram анализ</a></li>
+            <li><a href="index.html#vk-probivs">VK анализ</a></li>
+            <li><a href="index.html#car-probivs">Проверка авто</a></li>
+            <li><a href="index.html#car-probivs">Проверка авто</a></li>
+            <li><a href="index.html#other">Остальное</a></li>
+            <li><a href="legal.html">Законодательство</a></li>
+            <li><a href="tutorials.html">📚 Руководства и туториалы</a></li>
+            
+        </ul>
+    </aside>
+        <main class="content">
+        <header>
+            <h1>DataHunt News</h1>
+        </header>
+       <section id="osint-news">
+            <h2>Последние обновления в мире OSINT и Telegram-ботов.</h2>
+        <div class="news-grid">
+<div class="news-card">
+    <h3>DataHunt BETA v2.4.2</h3>
+    <p>Что нового:
+        Добавлена функция скролла в сайдбаре, обновлён интерфейс, добавлены прямые ссылки для быстрого доступа к инструментам и ботам. 
+        Созданы разделы «Новости / Updates», «Туториалы / Tutorials» (скоро появятся кейсы), «Сообщество / Community» и «Словарь терминов / Glossary».
+    </p>
+</div>
+
+    <div class="news-card">
+        <h3>🔍 Telescope — автоматизированный OSINT по Telegram</h3>
+        <p>Платформа Telescope анализирует данные из более чем 100 000 Telegram-каналов, включая закрытые группы и ботов. Используется для мониторинга конфликтов, кибератак и политических событий в реальном времени.
+        <a href="https://www.thetelescope.io/blogs/manual-osint-is-dead?utm_source=chatgpt.com" target="_blank">Читать подробнее</a></p>
+    </div>
+
+    <div class="news-card">
+        <h3>📊 Tosint — open-source инструмент анализа Telegram</h3>
+        <p>Tosint позволяет извлекать данные о ботах, чатах и администраторах Telegram. Он используется правоохранителями и исследователями киберугроз.
+        <a href="https://www.helpnetsecurity.com/2024/09/27/tosint-open-source-telegram-osint-tool/" target="_blank">Читать подробнее</a></p>
+    </div>
+
+    <div class="news-card">
+        <h3>📉 Более 40 утечек данных в Казахстане</h3>
+        <p>С начала 2025 года зафиксировано 43 утечки персональных данных в РК. Планируется создание реестра утечек и введение киберстрахования.
+        <a href="https://kz.kursiv.media/en/2025-04-28/authorities-report-more-than-40-personal-data-leak-incidents-in-kazakhstan-this-year/" target="_blank">Читать подробнее</a></p>
+    </div>
+
+        <footer>
+            <p>v2.4.2</p>
+            <p>© 2025 DataHunt</p>
+            <div class="contacts">
+                <p>Контакты:</p>
+                <a href="https://t.me/softplaya" class="contact-link">Telegram: @softplaya</a>
+                <a href="mailto:softplayawork@mail.ru" class="contact-link">Mail: softplayawork@mail.ru</a>
+            </div>
+        </footer>
+
+    <script>
+const headers = document.querySelectorAll('.accordion-header');
+headers.forEach(header => {
+  header.addEventListener('click', () => {
+    const content = header.nextElementSibling;
+    if (content.style.maxHeight) {
+      content.style.maxHeight = null;
+      header.classList.remove('active');
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      header.classList.add('active');
+    }
+  });
+});
+
+    </script>
+</body>
+</html>

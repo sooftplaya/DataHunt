@@ -1,157 +1,602 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DataHunt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&display=swap">
     <script src="script.js" defer></script>
     <script src="alert.js" defer></script>
     <link rel="icon" type="image/jpeg" href="DataHunt.jpg">
 </head>
 <body>
-    <div class="entry-modal" id="entryModal">
+    <div id="entryModal" class="entry-modal">
         <div class="modal-content">
             <h2>Юридическое предупреждение</h2>
-            <p>Использование представленных инструментов регулируется законодательством РК.Мы не несём ответственности за незаконное использование инструментов.</p>
+            <p>Использование представленных инструментов регулируется законодательством РК. Мы не несём ответственности за незаконное использование инструментов.</p>
             <button id="confirmButton">Я понимаю</button>
         </div>
     </div>
-    <div class="sidebar">
-        <h1 class="logo">DataHunt</h1>
+    
+    <button class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <aside class="sidebar">
+        <div class="logo">DataHunt</div>
         <ul class="nav-links">
-            <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
-            <li><a href="#api"><i class="fas fa-code"></i> API пробива</a></li>
-            <li><a href="#fio"><i class="fas fa-user"></i> Поиск по ФИО</a></li>
-            <li><a href="#phone"><i class="fas fa-phone"></i> Поиск по телефону</a></li>
-            <li><a href="#telegram"><i class="fas fa-paper-plane"></i> Telegram анализ</a></li>
-            <li><a href="#auto"><i class="fas fa-car"></i> Проверка авто</a></li>
-            <li><a href="legal.html"><i class="fas fa-lock"></i> Законодательство</a></li>
+            <li><a href="index.html" class="active">Главная</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="#api-probivs">API пробива</a></li>
+            <li><a href="#fio-probivs">Поиск по ФИО</a></li>
+            <li><a href="#phone-probivs">Поиск по телефону</a></li>
+            <li><a href="#tg-probivs">Telegram анализ</a></li>
+            <li><a href="#vk-probivs">VK анализ</a></li>
+            <li><a href="#car-probivs">Проверка авто</a></li>
+            <li><a href="#other">Остальное</a></li>
+            <li><a href="legal.html">Законодательство</a></li>
+            <li><a href="tutorials.html">📚 Руководства</a></li>
         </ul>
-    </div>
-    <div class="content">
+    </aside>
+
+    <main class="content">
         <header>
             <h1>DataHunt</h1>
             <p>OSINT Intelligence Platform</p>
+            <div class="warning">
+                <p>⚠️ <strong>Важно</strong>: Некоторые ссылки могут быть устаревшими, а Telegram-боты могли быть заблокированы. Ищите зеркальные боты с аналогичными названиями вручную.</p>
+            </div>
         </header>
-        <main>
-            <section id="api">
-                <h2>⚡️ Провайдеры API для пробива</h2>
-                <p>Лучшие сервисы, предоставляющие API для автоматизации поиска:</p>
-                <ul>
-                    <li><strong>Sauron</strong> — Популярный провайдер API, но сложная регистрация.</li>
-                    <li><strong>InfoTrackPeople</strong> — Хороший API для пробива по ФИО, телефону, почте, ИНН, паспорту. <a href="https://itp-docs.pages.dev/">Документация по интеграции</a></li>
-                    <li><strong>UsersBox</strong> — Удобный API для поиска по номеру телефона, email, username. <a href="https://usersbox.cc/#pricing">Документация по интеграции</a></li>
-                    <li><strong>Leak OSINT</strong> — Хороший АПИ за умеренные деньги. Документация доступна в телеграм боте.<a href="https://leakosint.com/api">Документация по интеграции</a></li>
-                    <li><strong>Himera Search</strong> — Имеет свой сайт и предоставляет АПИ, доступна после входа на сайт. <a href="https://himera-search.store/">Документация по интеграции</a></li>
-                </ul>
-            </section>
-            <section id="fio">
-                <h2>👤 Пробив по ФИО и дате рождения</h2>
-                <p>Описание: Пробив по ФИО (и дате рождения). Узнайте владельца, его соцсети, адрес, документы и другую связанную информацию. Топ ботов пробива:</p>
-                <ul>
-                    <li><strong>Himera Search</strong> — Хорошо ищет по ФИО, имеет веб версию.</li>
-                    <li><strong>Глаз Бога</strong> — Поиск по телефону, email, ФИО, соцсетям, местоположению, авто, документам, паролю, Telegram, адресу, кадастровому номеру, юр лицам, ИНН, СНИЛС, паспорту, ВУ.</li>
-                    <li><strong>InfoTrackPeople</strong> — Имеет бесплатную версию для пробива по ФИО (+ dd.mm.yyyy), телефону, почте, ИНН, паспорту, СНИЛС, Telegram, юзернейму, адресу, номеру авто, VIN-коду, паролю.</li>
-                    <li><strong>Оракул</strong> — Имеет поиск по ФИО, телефону, Телеграм, номеру авто, фото, соц. сетям, ИНН.</li>
-                    <li><strong>UsersBox</strong> — Поиск возможен по номеру телефона, email, username, ФИО, адресу, IP адресу, ссылке на соц. сеть.</li>
-                    <li><strong>Духless</strong> — Поиск по номеру телефона, имени, паспорту, ИНН, СНИЛС, email, адресу, айпи, паролю.</li>
-                    <li><strong>Leak OSINT</strong> — Поиск по почте, имени, телефону, паролю, авто, Telegram, FB, VK, IP.</li>
-                    <li><strong>InfoLab</strong> — Поиск по фото, ФИО, контактам, документам, авто, адресу, соцсетям и вебкам/эскорт.</li>
-                    <li><strong>OVERLOAD</strong> — Поиск по телефону, почте, ВК, ТГ, доменами, никами и другим.</li>
-                    <li><strong>Детектива</strong> — Поиск по телефону, email, VK, Instagram, OK, Facebook.</li>
-                    <li><strong>BloodLust</strong> — Бот для осуществления телефонных розыгрышей и поздравлений.</li>
-                    <li><strong>Zernerda</strong> — Поиск по телефону, ФИО, авто, Telegram, VK, Одноклассники, Twitter, Instagram, Facebook, почте, паспорту, ИНН, IP, User-Agent, стикерам.</li>
-                    <li><strong>Horus Eye</strong> — Поиск по имени, номеру, email, IP, паролю, адресу, ИНН, СНИЛС, паспорту, фото.</li>
-                    <li><strong>Defer&Vektor</strong> — Новый бот для пробива, 50 запросов бесплатно.</li>
-                    <li><strong>NoName</strong> — Поиск по телефону, почте, ФИО, авто, документам, адресу, ВК, ОК, ТГ, паролю.</li>
-                    <li><strong>InfoBaza</strong> — Поиск по номеру телефона, ФИО, авто, email, соцсетям, ЕГРЮЛ, WHOIS, никнейму.</li>
-                    <li><strong>Universal Search</strong> — Поиск города, улицы, номера дома или квартиры, аккаунтов и прочего. Умеет искать в других ботах.</li>
-                    <li><strong>ANUBIS</strong> — Поиск по ФИО, номеру телефона, айпи, адресу, почте и другим данным.</li>
-                    <li><strong>АРХАНГЕЛ</strong> — Поиск по телефону, ФИО, авто, почте, ИНН.</li>
-                </ul>
-            </section>
-            <section id="phone">
-                <h2>📱 Пробив по номеру телефона</h2>
-                <p>Описание: Бесплатный пробив по номеру телефона Telegram. Узнайте владельца, его соцсети, адрес, документы и другую связанную информацию. Топ ботов пробива:</p>
-                <ul>
-                    <li><strong>Himera Search</strong> — Хорошо ищет по телефону, имеет веб версию.</li>
-                    <li><strong>Глаз Бога</strong> — Поиск по телефону, email, ФИО, соцсетям, местоположению, авто, документам, паролю, Telegram, адресу, кадастровому номеру, юр лицам, ИНН, СНИЛС, паспорту, ВУ.</li>
-                    <li><strong>InfoTrackPeople</strong> — Поиск по ФИО, телефону, почте, ИНН, паспорту, СНИЛС, Telegram, юзернейму, адресу, номеру авто, VIN-коду, паролю.</li>
-                    <li><strong>Оракул</strong> — Имеет поиск по ФИО, телефону, Телеграм, номеру авто, фото, соц. сетям, ИНН.</li>
-                    <li><strong>UsersBox</strong> — Поиск возможен по номеру телефона, email, username, ФИО, адресу, IP адресу, ссылке на соц. сеть.</li>
-                    <li><strong>Духless</strong> — Поиск по номеру телефона, имени, паспорту, ИНН, СНИЛС, email, адресу, айпи, паролю.</li>
-                    <li><strong>Leak OSINT</strong> — Поиск по почте, имени, телефону, паролю, авто, Telegram, FB, VK, IP.</li>
-                    <li><strong>InfoLab</strong> — Поиск по фото, ФИО, контактам, документам, авто, адресу, соцсетям и вебкам/эскорт.</li>
-                    <li><strong>OVERLOAD</strong> — Поиск по телефону, почте, ВК, ТГ, доменами, никами и другим.</li>
-                    <li><strong>Детектива</strong> — Поиск по телефону, email, VK, Instagram, OK, Facebook.</li>
-                    <li><strong>Universal Search</strong> — Поиск города, улицы, номера дома или квартиры, аккаунтов и прочего. Умеет искать в других ботах.</li>
-                    <li><strong>BloodLust</strong> — Бот для осуществления телефонных розыгрышей и поздравлений.</li>
-                    <li><strong>Zernerda</strong> — Поиск по телефону, ФИО, авто, Telegram, VK, Одноклассники, Twitter, Instagram, Facebook, почте, паспорту, ИНН, IP, User-Agent, стикерам.</li>
-                    <li><strong>Horus Eye</strong> — Поиск по имени, номеру, email, IP, паролю, адресу, ИНН, СНИЛС, паспорту, фото.</li>
-                    <li><strong>Defer&Vektor</strong> — Новый бот для пробива, 50 запросов бесплатно.</li>
-                    <li><strong>Unamer</strong> — Поиск по Telegram, телефону.</li>
-                    <li><strong>AVinfo</strong> — Поиск по госномеру, VIN, номеру телефона, фото, IP, email, ИНН организации, номеру ПТС.</li>
-                    <li><strong>NoName</strong> — Поиск по телефону, почте, ФИО, авто, документам, адресу, ВК, ОК, ТГ, паролю.</li>
-                    <li><strong>InfoBaza</strong> — Поиск по номеру телефона, ФИО, авто, email, соцсетям, ЕГРЮЛ, WHOIS, никнейму.</li>
-                    <li><strong>ANUBIS</strong> — Поиск по ФИО, номеру телефона, айпи, адресу, почте и другим данным.</li>
-                    <li><strong>АРХАНГЕЛ</strong> — Поиск по телефону, ФИО, авто, почте, ИНН.</li>
-                </ul>
-            </section>
-            <section id="telegram">
-                <h2>➣ Пробив Telegram аккаунта</h2>
-                <p>Описание: Найдите информацию о владельце Telegram аккаунта: группы, в которых состоит пользователь, его сообщения и многое другое.</p>
-                <ul>
-                    <li><strong>TeleSkan</strong> — Найдёт группы, в которых состоит пользователь, и сообщения, которые он там оставлял.</li>
-                    <li><strong>Fun Stat</strong> — Находит чаты, в которых состоит пользователь, активность, телефон, электронную почту, ФИО и многое другое. Первый бот с анализом сообщений.</li>
-                    <li><strong>TeleSINT</strong> — Профессиональный инструмент для исследования групп и пользователей Telegram.</li>
-                    <li><strong>Insight</strong> — Показывает интересы аккаунта, а платная версия выдаст историю изменения имени, номер телефона, группы и ссылки, которые публиковал пользователь.</li>
-                    <li><strong>InfoTrackPeople</strong> — Хороший бот для пробива по Telegram, юзернейму. Имеет поиск по коментариям в Telegram.</li>
-                    <li><strong>TgScanRobot</strong> — Найдёт группы, в которых состоит этот аккаунт.</li>
-                    <li><strong>Unamer</strong> — Поиск по Телеграму, телефону.</li>
-                    <li><strong>SangMata</strong> — История изменения имени аккаунта. Для поиска отправьте в бот ID аккаунта.</li>
-                </ul>
-            </section>
-            <section id="vk">
-                <h2>☂️ Пробив ВКонтакте аккаунта</h2>
-                <p>Описание: Узнайте историю активности в ВКонтакте, включая удаленные фото, группы друзей и публичные данные.</p>
-                <ul>
-                    <li><strong>VKHistoryRobot</strong> — История профиля с 2010 по 2023 год, включает аватары. Нужно вводить числовой ID страницы.</li>
-                    <li><strong>Social Graph</strong> — На основе публичного профиля составляет граф друзей, на котором видны группы родственников, коллег, друзей по школе и т.д.</li>
-                    <li><strong>FindNameVk</strong> — Ищет историю смены фамилий профиля по открытым источникам и указывает дату создания аккаунта.</li>
-                    <li><strong>Vbiv</strong> — Находит удалённые фото аккаунта, иногда телефон и почту.</li>
-                </ul>
-                <h3>🗂 Парсеры:</h3>
-                <ul>
-                    <li><strong>Aximo</strong> — Мгновенно сохраняет новые публикации аккаунта ВКонтакте.</li>
-                    <li><strong>Parser Pro</strong> — Помогает спарсить целевую аудиторию из чатов и не только!</li>
-                </ul>
-            </section>
-            <section id="auto">
-                <h2>🚗 Пробив по номеру авто</h2>
-                <p>Описание: Получите полную информацию о транспортном средстве по его VIN-коду или госномеру.</p>
-                <ul>
-                    <li><strong>VIN01</strong> — Проверка авто по VIN и госномеру, с отзывами и менеджментом избранного.</li>
-                    <li><strong>InfoTrackPeople</strong> — Хороший бот для пробива по номеру авто, VIN-коду.</li>
-                    <li><strong>Автограм</strong> — Сервис, позволяющий искать информацию об автомобиле по госномеру и зарабатывать на этом реальные деньги.</li>
-                    <li><strong>AVinfo</strong> — Поиск по госномеру, VIN, номеру телефона, фото, IP, email, ИНН организации, номеру ПТС.</li>
-                    <li><strong>Avtocod</strong> — Проверка авто по VIN, номеру шасси или государственному регистрационному знаку.</li>
-                    <li><strong>Изи ВИН</strong> — Выгодный способ проверки истории автомобиля по VIN или гос. номеру.</li>
-                </ul>
-            </section>
-            <section id="other">
-                <h2>👁‍🗨 Остальное</h2>
-                <ul>
-                    <li><strong>Discord Sensor</strong> — Мощнейший инструмент для анализа данных Discord</li>
-                </ul>
-            </section>
-        </div>
+
+ <section id="api-probivs">
+            <h2>⚡️ Провайдеры API для пробива</h2>
+            <p>Лучшие сервисы, предоставляющие API для автоматизации поиска:</p>
+            <div class="accordion-item">
+                <button class="accordion-header">Sauron <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Популярный провайдер API, но сложная регистрация.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoTrackPeople <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Хороший API для пробива по ФИО, телефону, почте, ИНН, паспорту.</p>
+                    <a href="https://infotrackpeople.com/docs" class="link-button">Документация по интеграции</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">UsersBox <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Удобный API для поиска по номеру телефона, email, username.</p>
+                    <a href="https://usersbox.org/api-docs" class="link-button">Документация по интеграции</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Leak OSINT <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Хороший АПИ за умеренные деньги. Документация доступна в телеграм боте.</p>
+                    <a href="https://t.me/LeakOSINTBot?start=docs" class="link-button">Документация по интеграции</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Himera Search <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Имеет свой сайт и предоставляет АПИ, доступна после входа на сайт.</p>
+                    <a href="https://himerasearch.com/docs" class="link-button">Документация по интеграции</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="fio-probivs">
+            <h2>👤 Пробив по ФИО и дате рождения</h2>
+            <p>Описание: Пробив по ФИО (и дате рождения). Узнайте владельца, его соцсети, адрес, документы и другую связанную информацию. Топ ботов пробива:</p>
+            <div class="accordion-item">
+                <button class="accordion-header">Himera Search <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Хорошо ищет по ФИО, имеет веб версию.</p>
+                    <a href="https://t.me/HimeraSearch_OSINTbot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Глаз Бога <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, email, ФИО, соцсетям, местоположению, авто, документам, паролю, Telegram, адресу, кадастровому номеру, юр лицам, ИНН, СНИЛС, паспорту, ВУ.</p>
+                    <a href="https://t.me/EyeGodsBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoTrackPeople <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Имеет бесплатную версию для пробива по ФИО (+ dd.mm.yyyy), телефону, почте, ИНН, паспорту, СНИЛС, Telegram, юзернейму, адресу, номеру авто, VIN-коду, паролю.</p>
+                    <a href="https://t.me/InfoTrackPeopleBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Оракул <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Имеет поиск по ФИО, телефону, Телеграм, номеру авто, фото, соц. сетям, ИНН.</p>
+                    <a href="https://t.me/OrakulBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">UsersBox <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск возможен по номеру телефона, email, username, ФИО, адресу, IP адресу, ссылке на соц. сеть.</p>
+                    <a href="https://t.me/UsersBoxBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Духless <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по номеру телефона, имени, паспорту, ИНН, СНИЛС, email, адресу, айпи, паролю.</p>
+                    <a href="https://t.me/DuhlessBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Leak OSINT <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по почте, имени, телефону, паролю, авто, Telegram, FB, VK, IP.</p>
+                    <a href="https://t.me/LeakOSINTBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoLab <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по фото, ФИО, контактам, документам, авто, адресу, соцсетям и вебкам/эскорт.</p>
+                    <a href="https://t.me/InfoLabBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">OVERLOAD <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, почте, ВК, ТГ, доменами, никами и другим.</p>
+                    <a href="https://t.me/OverloadBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Детектива <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, email, VK, Instagram, OK, Facebook.</p>
+                    <a href="https://t.me/DetektivaBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">BloodLust <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Бот для осуществления телефонных розыгрышей и поздравлений.</p>
+                    <a href="https://t.me/BloodLustBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Zernerda <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, ФИО, авто, Telegram, VK, Одноклассники, Twitter, Instagram, Facebook, почте, паспорту, ИНН, IP, User-Agent, стикерам.</p>
+                    <a href="https://t.me/ZernerdaBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Horus Eye <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по имени, номеру, email, IP, паролю, адресу, ИНН, СНИЛС, паспорту, фото.</p>
+                    <a href="https://t.me/HorusEyeBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Defer&Vektor <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Новый бот для пробива, 50 запросов бесплатно.</p>
+                    <a href="https://t.me/DeferVektorBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">NoName <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, почте, ФИО, авто, документам, адресу, ВК, ОК, ТГ, паролю.</p>
+                    <a href="https://t.me/NoNameBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoBaza <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по номеру телефона, ФИО, авто, email, соцсетям, ЕГРЮЛ, WHOIS, никнейму.</p>
+                    <a href="https://t.me/InfoBazaBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Universal Search <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск города, улицы, номера дома или квартиры, аккаунтов и прочего. Умеет искать в других ботах.</p>
+                    <a href="https://t.me/UniversalSearchBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">ANUBIS <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по ФИО, номеру телефона, айпи, адресу, почте и другим данным.</p>
+                    <a href="https://t.me/AnubisBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">АРХАНГЕЛ <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, ФИО, авто, почте, ИНН.</p>
+                    <a href="https://t.me/ArhangelBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="phone-probivs">
+            <h2>📱 Пробив по номеру телефона</h2>
+            <p>Описание: Бесплатный пробив по номеру телефона Telegram. Узнайте владельца, его соцсети, адрес, документы и другую связанную информацию. Топ ботов пробива:</p>
+            <div class="accordion-item">
+                <button class="accordion-header">Himera Search <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Хорошо ищет по телефону, имеет веб версию.</p>
+                    <a href="https://t.me/HimeraSearch_OSINTbot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Глаз Бога <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, email, ФИО, соцсетям, местоположению, авто, документам, паролю, Telegram, адресу, кадастровому номеру, юр лицам, ИНН, СНИЛС, паспорту, ВУ.</p>
+                    <a href="https://t.me/EyeGodsBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoTrackPeople <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по ФИО, телефону, почте, ИНН, паспорту, СНИЛС, Telegram, юзернейму, адресу, номеру авто, VIN-коду, паролю.</p>
+                    <a href="https://t.me/InfoTrackPeopleBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Оракул <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Имеет поиск по ФИО, телефону, Телеграм, номеру авто, фото, соц. сетям, ИНН.</p>
+                    <a href="https://t.me/OrakulBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">UsersBox <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск возможен по номеру телефона, email, username, ФИО, адресу, IP адресу, ссылке на соц. сеть.</p>
+                    <a href="https://t.me/UsersBoxBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Духless <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по номеру телефона, имени, паспорту, ИНН, СНИЛС, email, адресу, айпи, паролю.</p>
+                    <a href="https://t.me/DuhlessBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Leak OSINT <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по почте, имени, телефону, паролю, авто, Telegram, FB, VK, IP.</p>
+                    <a href="https://t.me/LeakOSINTBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoLab <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по фото, ФИО, контактам, документам, авто, адресу, соцсетям и вебкам/эскорт.</p>
+                    <a href="https://t.me/InfoLabBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">OVERLOAD <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, почте, ВК, ТГ, доменами, никами и другим.</p>
+                    <a href="https://t.me/OverloadBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Детектива <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, email, VK, Instagram, OK, Facebook.</p>
+                    <a href="https://t.me/DetektivaBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Universal Search <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск города, улицы, номера дома или квартиры, аккаунтов и прочего. Умеет искать в других ботах.</p>
+                    <a href="https://t.me/UniversalSearchBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">BloodLust <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Бот для осуществления телефонных розыгрышей и поздравлений.</p>
+                    <a href="https://t.me/BloodLustBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Zernerda <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, ФИО, авто, Telegram, VK, Одноклассники, Twitter, Instagram, Facebook, почте, паспорту, ИНН, IP, User-Agent, стикерам.</p>
+                    <a href="https://t.me/ZernerdaBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Horus Eye <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по имени, номеру, email, IP, паролю, адресу, ИНН, СНИЛС, паспорту, фото.</p>
+                    <a href="https://t.me/HorusEyeBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Defer&Vektor <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Новый бот для пробива, 50 запросов бесплатно.</p>
+                    <a href="https://t.me/DeferVektorBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Unamer <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по Telegram, телефону.</p>
+                    <a href="https://t.me/UnamerBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">AVinfo <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по госномеру, VIN, номеру телефона, фото, IP, email, ИНН организации, номеру ПТС.</p>
+                    <a href="https://t.me/AVinfoBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">NoName <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, почте, ФИО, авто, документам, адресу, ВК, ОК, ТГ, паролю.</p>
+                    <a href="https://t.me/NoNameBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoBaza <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по номеру телефона, ФИО, авто, email, соцсетям, ЕГРЮЛ, WHOIS, никнейму.</p>
+                    <a href="https://t.me/InfoBazaBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">ANUBIS <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по ФИО, номеру телефона, айпи, адресу, почте и другим данным.</p>
+                    <a href="https://t.me/AnubisBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">АРХАНГЕЛ <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, ФИО, авто, почте, ИНН.</p>
+                    <a href="https://t.me/ArhangelBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Sky OSINT <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по телефону, ФИО, авто, почте, документам, соц сети.</p>
+                    <a href="https://t.me/SkyOSINTBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tg-probivs">
+            <h2>➣ Пробив Telegram аккаунта</h2>
+            <p>Описание: Найдите информацию о владельце Telegram аккаунта: группы, в которых состоит пользователь, его сообщения и многое другое.</p>
+            <div class="accordion-item">
+                <button class="accordion-header">TeleSkan <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Найдёт группы, в которых состоит пользователь, и сообщения, которые он там оставлял.</p>
+                    <a href="https://t.me/TeleSkanBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Fun Stat <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Находит чаты, в которых состоит пользователь, активность, телефон, электронную почту, ФИО и многое другое. Первый бот с анализом сообщений.</p>
+                    <a href="https://t.me/FunStatBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">TeleSINT <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Профессиональный инструмент для исследования групп и пользователей Telegram.</p>
+                    <a href="https://t.me/TeleSINTBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Insight <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Показывает интересы аккаунта, а платная версия выдаст историю изменения имени, номер телефона, группы и ссылки, которые публиковал пользователь.</p>
+                    <a href="https://t.me/InsightBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoTrackPeople <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Хороший бот для пробива по Telegram, юзернейму. Имеет поиск по коментариям в Telegram.</p>
+                    <a href="https://t.me/InfoTrackPeopleBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">TgScanRobot <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Найдёт группы, в которых состоит этот аккаунт.</p>
+                    <a href="https://t.me/TgScanRobot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Unamer <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по Телеграму, телефону.</p>
+                    <a href="https://t.me/UnamerBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">SangMata <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>История изменения имени аккаунта. Для поиска отправьте в бот ID аккаунта.</p>
+                    <a href="https://t.me/SangMataBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="vk-probivs">
+            <h2>☂️ Пробив ВКонтакте аккаунта</h2>
+            <p>Описание: Узнайте историю активности в ВКонтакте, включая удаленные фото, группы друзей и публичные данные.</p>
+            <div class="accordion-item">
+                <button class="accordion-header">VKHistoryRobot <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>История профиля с 2010 по 2023 год, включает аватары. Нужно вводить числовой ID страницы.</p>
+                    <a href="https://t.me/VKHistoryRobot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Social Graph <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>На основе публичного профиля составляет граф друзей, на котором видны группы родственников, коллег, друзей по школе и т.д.</p>
+                    <a href="https://t.me/SocialGraphBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">FindNameVk <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Ищет историю смены фамилий профиля по открытым источникам и указывает дату создания аккаунта.</p>
+                    <a href="https://t.me/FindNameVkBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Vbiv <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Находит удалённые фото аккаунта, иногда телефон и почту.</p>
+                    <a href="https://t.me/VbivBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">220 vk.com <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Наблюдать за Онлайн активностью пользователя ВКонтакте. Умеет определять устройства и приложения, через которые сидит пользователь. Есть возможность сравнения онлайн активности нескольких пользователей.И т.д</p>
+                    <a href="https://220vk.com/" class="link-button">Перейти на сайт</a>
+                </div>
+            </div>
+                        <div class="accordion-item">
+                <button class="accordion-header">Reg vk.com <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Узнать ID страницы или группы ВКонтакте</p>
+                    <a href="https://regvk.com/id/" class="link-button">Перейти на сайт</a>
+                </div>
+            </div>
+            <h3>🗂 Парсеры:</h3>
+            <div class="accordion-item">
+                <button class="accordion-header">Aximo <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Мгновенно сохраняет новые публикации аккаунта ВКонтакте.</p>
+                    <a href="https://t.me/AximoBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Parser Pro <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Помогает спарсить целевую аудиторию из чатов и не только!</p>
+                    <a href="https://t.me/ParserProBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="car-probivs">
+            <h2>🚗 Пробив по номеру авто</h2>
+            <p>Описание: Получите полную информацию о транспортном средстве по его VIN-коду или госномеру.</p>
+            <div class="accordion-item">
+                <button class="accordion-header">VIN01 <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Проверка авто по VIN и госномеру, с отзывами и менеджментом избранного.</p>
+                    <a href="https://t.me/VIN01Bot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">InfoTrackPeople <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Хороший бот для пробива по номеру авто, VIN-коду.</p>
+                    <a href="https://t.me/InfoTrackPeopleBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Автограм <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Сервис, позволяющий искать информацию об автомобиле по госномеру и зарабатывать на этом реальные деньги.</p>
+                    <a href="https://t.me/AutogramBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">AVinfo <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Поиск по госномеру, VIN, номеру телефона, фото, IP, email, ИНН организации, номеру ПТС.</p>
+                    <a href="https://t.me/AVinfoBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Avtocod <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Проверка авто по VIN, номеру шасси или государственному регистрационному знаку.</p>
+                    <a href="https://t.me/AvtocodBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Изи ВИН <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Выгодный способ проверки истории автомобиля по VIN или гос. номеру.</p>
+                    <a href="https://t.me/IziVINBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="other">
+            <h2>👁‍🗨 Остальное</h2>
+            <div class="accordion-item">
+                <button class="accordion-header">Discord Sensor <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Мощнейший инструмент для анализа данных Discord.</p>
+                    <a href="https://t.me/DiscordSensorBot?start=7931581398" class="link-button">Перейти в Telegram</a>
+                </div>
+            </div>
+                        <div class="accordion-item">
+                <button class="accordion-header"> FindClone <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Сервис обратного поиска изображения  по VK, позволяют произвести поиск профиля по загруженной фотографии.</p>
+                    <a href="https://findclone.ru/" class="link-button">Перейти на сайт.</a>
+                </div>
+            </div>
+                        <div class="accordion-item">
+                <button class="accordion-header">Search4faces <i>🔗</i></button>
+                <div class="accordion-content">
+                    <p>Сервис обратного поиска изображения  по VK, позволяют произвести поиск профиля по загруженной фотографии.</p>
+                    <a href="https://search4faces.com/" class="link-button">Перейти на сайт.</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="community">
+            <h2>🤝 Сообщество</h2>
+            <p>Присоединяйтесь к нашему сообществу OSINT-энтузиастов!</p>
+            <a href="https://t.me/DataHunt_Tools" class="link-button">Вступить в Telegram</a>
+        </section>
         <footer>
-            <p>v2.4.1</p>
+            <p>v2.4.2</p>
             <p>© 2025 DataHunt</p>
+            <div class="contacts">
+                <p>Контакты:</p>
+                <a href="https://t.me/softplaya" class="contact-link">Telegram: @softplaya</a>
+                <a href="mailto:softplayawork@mail.ru" class="contact-link">Mail: softplayawork@mail.ru</a>
+            </div>
         </footer>
-    </div>
+    </main>
+    
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
